@@ -1,0 +1,7 @@
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& vec) {
+    int ans= max_element(vec.begin(), vec.end()) - vec.begin();
+    return ans;
+    }
+};
