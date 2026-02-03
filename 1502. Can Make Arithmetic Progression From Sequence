@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool canMakeArithmeticProgression(vector<int>& vec) {
+    sort(vec.begin(), vec.end());
+    int d = vec[1] - vec[0];
+    for (int i = 2; i < vec.size(); i++)
+    {
+
+        if (vec[i] - vec[i-1] != d)
+        {
+            return false;
+        }
+    }
+    return true;
+    }
+};
