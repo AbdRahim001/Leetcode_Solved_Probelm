@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+            int sum = 0;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        sum += nums[i];
+    }
+
+    int count = 0;
+
+    auto target = max_element(nums.begin(), nums.end());
+    int target_loc = distance(nums.begin(), target);
+
+    if (sum > k)
+    {
+        while (sum % k != 0)
+        {
+            sum = sum - 1;
+            nums[target_loc] -= 1;
+            count++;
+        }
+    }
+    else if (sum < k)
+    {
+        int i = 0;
+        while (i < nums.size())
+        {
+            count += nums[i];
+            i++;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+    return count;
+
+    }
+};
