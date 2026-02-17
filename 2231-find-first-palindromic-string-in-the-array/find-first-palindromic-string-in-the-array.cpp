@@ -6,7 +6,6 @@ public:
             reverse(str.begin(), str.end());
             if (str == words[i]) {
                 return str;
-                break;
             }
         }
         return "";
