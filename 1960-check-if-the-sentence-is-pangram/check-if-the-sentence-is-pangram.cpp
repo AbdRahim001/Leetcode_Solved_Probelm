@@ -1,11 +1,11 @@
 class Solution {
 public:
     bool checkIfPangram(string sentence) {
-        map<char, int> mp;
+        set<char> st;
         for (int i = 0; i < sentence.size(); i++) {
-            mp[sentence[i]]++;
+            st.insert(sentence[i]);
         }
-        if (mp.size() == 26)
+        if (st.size() == 26)
             return true;
         else
             return false;
