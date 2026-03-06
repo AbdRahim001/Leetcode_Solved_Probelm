@@ -1,19 +1,12 @@
+//-- 0ms code
 class Solution {
 public:
-    int digits(int x) {
-        int count = 0;
-        while (x != 0) {
-            count++;
-            x /= 10;
-        }
-        return count;
-    }
     int findNumbers(vector<int>& nums) {
         int count = 0;
         for (auto i : nums) {
-            if (digits(i) % 2 == 0) {
+            if ((i >= 10 && i <= 99) || (i >= 1000 && i <= 9999) ||
+                (i >= 100000 && i <= 999999))
                 count++;
-            }
         }
         return count;
     }
