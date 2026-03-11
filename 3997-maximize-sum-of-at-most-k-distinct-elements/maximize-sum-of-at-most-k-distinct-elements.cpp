@@ -1,19 +1,16 @@
 class Solution {
 public:
     vector<int> maxKDistinct(vector<int>& nums, int k) {
-        sort(nums.begin(), nums.end());
-        map<int, int, greater<int>> mp;
-        for (auto i : nums) {
-            mp[i]++;
-        }
-        vector<int> result;
-        for (auto i : mp) {
-            result.push_back(i.first);
-        }
-        if (k >= result.size()) {
+        sort(nums.rbegin(), nums.rend());
+        auto it = unique(nums.begin(), nums.end());
+
+        nums.erase(it, nums.end());
+        if (k >= nums.size())
+            return nums;
+        else {
+            vector<int> result;
+            copy(nums.begin(), nums.begin() + k, back_inserter(result));
             return result;
-        } else {
-            return vector<int>(result.begin(), result.begin() + k);
         }
     }
 };
