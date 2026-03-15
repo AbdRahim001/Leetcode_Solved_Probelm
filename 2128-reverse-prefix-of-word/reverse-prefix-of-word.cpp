@@ -1,25 +1,17 @@
+//--Without using Stack TC->O(n) & SC->O(n)
+//--Using two pointer TC->O(n) & SC->O(1)
 class Solution {
 public:
     string reversePrefix(string word, char ch) {
-        if (word.find(ch) == string::npos)
+        int pos = word.find(ch);
+        if (pos == string::npos)
             return word;
-        stack<char> sta;
-
-        int i = 0;
-        while (word[i] != ch) {
-            sta.push(word[i]);
-            i++;
+        int left = 0, right = pos;
+        while (left <= right) {
+            swap(word[left], word[right]);
+            left++;
+            right--;
         }
-        sta.push(ch);
-
-        int j = 0;
-        while (word[j] != ch) {
-            word[j] = sta.top();
-            sta.pop();
-            j++;
-        }
-        word[j] = sta.top();
-        sta.pop();
         return word;
     }
 };
