@@ -7,14 +7,15 @@ public:
         string s3 = "zxcvbnm";
         vector<string> result;
 
-        for (int i = 0; i < words.size(); i++) {
+        for (int i = 0; i < (int)words.size(); i++) {
             map<int, int> mp1;
             map<int, int> mp2;
             map<int, int> mp3;
 
-            for (int j = 0; j < words[i].size(); j++) {
+            for (int j = 0; j < (int)words[i].size(); j++) {
                 if (words[i][j] >= 'A' && words[i][j] <= 'Z')
                     words[i][j] += 32;
+
                 auto it1 = find(s1.begin(), s1.end(), words[i][j]);
                 auto it2 = find(s2.begin(), s2.end(), words[i][j]);
                 auto it3 = find(s3.begin(), s3.end(), words[i][j]);
@@ -28,15 +29,15 @@ public:
                 }
             }
             int a = 0, b = 0, c = 0;
-            for (auto i : mp1)
-                a += i.second;
-            for (auto i : mp2)
-                b += i.second;
-            for (auto i : mp3)
-                c += i.second;
+            for (auto& p : mp1)
+                a += p.second;
+            for (auto& p : mp2)
+                b += p.second;
+            for (auto& p : mp3)
+                c += p.second;
 
-            if (a == words[i].size() || b == words[i].size() ||
-                c == words[i].size()) {
+            if (a == (int)words[i].size() || b == (int)words[i].size() ||
+                c == (int)words[i].size()) {
                 result.push_back(words_cpy[i]);
             }
         }
