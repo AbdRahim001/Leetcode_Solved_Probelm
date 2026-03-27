@@ -1,14 +1,10 @@
 class Solution {
 public:
     vector<int> sortedSquares(vector<int>& nums) {
-        multiset<int> st;
-        for (auto i : nums) {
-            st.insert(i * i);
+        for (auto& i : nums) {
+            i *= i;
         }
-        nums.erase(nums.begin(), nums.end());
-        for (auto i : st) {
-            nums.push_back(i);
-        }
+        sort(nums.begin(), nums.end());
         return nums;
     }
 };
