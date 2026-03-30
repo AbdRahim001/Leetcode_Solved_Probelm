@@ -1,7 +1,7 @@
 class Solution {
 public:
     int mostWordsFound(vector<string>& sentences) {
-        int k = INT_MIN;
+        int k = -1;
         for (auto i : sentences) {
             int count = 1;
             for (auto j : i) {
