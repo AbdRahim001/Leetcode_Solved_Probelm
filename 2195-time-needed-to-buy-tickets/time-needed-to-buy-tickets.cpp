@@ -14,14 +14,10 @@ public:
             int temp_pos = q.front().second;
             q.pop();
             count++;
-            if (temp_pos == k) {
+            if (temp_pos == k)
                 selected--;
-                if (temp_val - 1 > 0)
-                    q.push({temp_val - 1, temp_pos});
-            } else {
-                if (temp_val - 1 > 0)
-                    q.push({temp_val - 1, temp_pos});
-            }
+            if (temp_val - 1 > 0)
+                q.push({temp_val - 1, temp_pos});
         }
         return count;
     }
