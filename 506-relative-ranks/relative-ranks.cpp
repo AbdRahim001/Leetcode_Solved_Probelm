@@ -3,16 +3,14 @@ public:
     vector<string> findRelativeRanks(vector<int>& score) {
         int n = score.size();
         vector<string> result(n, "0");
-        priority_queue<int> pq;
-        for (auto i : score) {
-            pq.push(i);
+        priority_queue<pair<int, int>> pq;
+        for (int i = 0; i < n; i++) {
+            pq.push({score[i], i});
         }
         int k = 1;
         while (!pq.empty()) {
-            int top = pq.top();
+            auto [top, pos] = pq.top();
             pq.pop();
-            auto it = find(score.begin(), score.end(), top);
-            int pos = it - score.begin();
             if (k == 1)
                 result[pos] = "Gold Medal";
             else if (k == 2)
