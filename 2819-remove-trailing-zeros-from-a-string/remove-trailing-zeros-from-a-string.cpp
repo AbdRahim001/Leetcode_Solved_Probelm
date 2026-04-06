@@ -1,9 +1,10 @@
 class Solution {
 public:
     string removeTrailingZeros(string num) {
-        while (*(num.end() - 1) == '0') {
-            num.pop_back();
+        int i = num.size() - 1;
+        while (num[i] == '0') {
+            i--;
         }
-        return num;
+        return num.substr(0, i + 1);
     }
 };
