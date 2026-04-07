@@ -4,10 +4,9 @@ public:
         if (s.size() != words.size())
             return false;
         int j = 0;
-        for (auto i : words) {
-            if (*i.begin() != s[j])
+        for (int i = 0; i < words.size(); i++) {
+            if (words[i][0] != s[i])
                 return false;
-            j++;
         }
         return true;
     }
