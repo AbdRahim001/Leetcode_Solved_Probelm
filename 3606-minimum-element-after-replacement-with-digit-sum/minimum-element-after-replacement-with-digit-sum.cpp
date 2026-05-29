@@ -6,7 +6,6 @@ public:
             temp += x % 10;
             x /= 10;
         }
-        // cout << temp << ' ';
         return temp;
     }
     int minElement(vector<int>& nums) {
