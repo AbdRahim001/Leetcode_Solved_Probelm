@@ -4,7 +4,7 @@ public:
         vector<int> freq(26, 0);
         int count = 0;
         for (auto i : s) {
-            freq[i - 'a']++;
+            freq[i - 'a']=1;
         }
         for (auto i : freq) {
             if (i > 0)
