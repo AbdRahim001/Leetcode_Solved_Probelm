@@ -10,6 +10,8 @@ public:
                 sumOdd += i;
         }
         while (sumEven != sumOdd) {
+            if (sumEven == 0 || sumOdd == 0)
+                return sumEven + sumOdd;
             if (sumEven > sumOdd)
                 sumEven -= sumOdd;
             else
