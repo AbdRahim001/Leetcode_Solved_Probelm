@@ -3,22 +3,14 @@ class Solution {
 public:
     vector<int> sortArrayByParityII(vector<int>& nums) {
         int len = nums.size();
-        for (int i = 0; i < len; i++) {
-            if (i % 2 == 0 && nums[i] % 2 != 0) {
-                for (int j = i + 1; j < len; j++) {
-                    if (j % 2 != 0 && nums[j] % 2 == 0) {
-                        swap(nums[i], nums[j]);
-                        break;
-                    }
-                }
-            } else if (i % 2 != 0 && nums[i] % 2 == 0) {
-                for (int j = i + 1; j < len; j++) {
-                    if (j % 2 == 0 && nums[j] % 2 != 0) {
-                        swap(nums[i], nums[j]);
-                        break;
-                    }
-                }
-            }
+        int i = 0, j = len - 1;
+        while (i < len && j >= 0) {
+            if (nums[i] % 2 == 0)
+                i += 2;
+            else if (nums[j] % 2 == 1)
+                j -= 2;
+            else
+                swap(nums[i], nums[j]);
         }
         return nums;
     }
