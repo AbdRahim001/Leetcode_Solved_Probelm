@@ -8,9 +8,10 @@ public:
         }
         int low = min(digits[0], digits[1]);
         int high = max(digits[0], digits[1]);
-        if (digits.size() < 3)
+        int len = digits.size();
+        if (len < 3)
             return low * high;
-        for (int i = 2; i < digits.size(); i++) {
+        for (int i = 2; i < len; i++) {
             if (high < digits[i]) {
                 low = high;
                 high = digits[i];
