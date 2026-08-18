@@ -1,4 +1,4 @@
-/* Write your T-SQL query statement below */
+-- Write your PostgreSQL query statement below
 select  d.name as Department, 
         e1.name as Employee, 
         e1.salary as Salary 
