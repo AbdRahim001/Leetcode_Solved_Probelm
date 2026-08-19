@@ -1,4 +1,4 @@
-/* Write your T-SQL query statement below */
+-- Write your PostgreSQL query statement below
 SELECT teacher_id,
        Count(DISTINCT( subject_id )) AS cnt
 FROM   teacher
