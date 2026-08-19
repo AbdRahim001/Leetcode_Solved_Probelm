@@ -1,4 +1,4 @@
-# Write your MySQL query statement below
+/* Write your T-SQL query statement below */
 SELECT teacher_id,
        Count(DISTINCT( subject_id )) AS cnt
 FROM   teacher
