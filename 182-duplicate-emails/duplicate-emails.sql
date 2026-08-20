@@ -1,7 +1,5 @@
 # Write your MySQL query statement below
-SELECT DISTINCT( email )
+SELECT email
 FROM   person
-WHERE  email IN (SELECT email
-                 FROM   person
-                 GROUP  BY email
-                 HAVING Count(*) > 1); 
+GROUP  BY email
+HAVING Count(email) > 1; 
