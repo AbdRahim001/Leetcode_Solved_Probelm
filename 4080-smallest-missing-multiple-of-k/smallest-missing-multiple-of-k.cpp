@@ -1,12 +1,12 @@
 class Solution {
 public:
     int missingMultiple(vector<int>& nums, int k) {
-        map<int, int> mp;
+        vector<int> freq(1001, 0);
         for (auto i : nums) {
-            mp[i]++;
+            freq[i]++;
         }
         int i = 1;
-        while (mp[i * k] != 0) {
+        while (freq[i * k] != 0) {
             i++;
         }
         return i * k;
