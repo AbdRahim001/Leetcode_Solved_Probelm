@@ -13,7 +13,6 @@ public:
             if (st2.find(i) != st2.end()) {
                 ans.push_back(i);
             }
-            st1.erase(i);
             st2.erase(i);
         }
         return ans;
