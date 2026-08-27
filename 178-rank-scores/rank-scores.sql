@@ -2,5 +2,5 @@
 SELECT score,
        Dense_rank()
          OVER (
-           ORDER BY score DESC) AS "rank"
+           ORDER BY score DESC) AS rank
 FROM   scores; 
