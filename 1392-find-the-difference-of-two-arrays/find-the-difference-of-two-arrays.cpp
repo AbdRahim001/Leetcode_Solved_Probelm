@@ -1,26 +1,20 @@
 class Solution {
 public:
     vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
-        map<int, int> n1Map;
-        map<int, int> n2Map;
-        for (auto i : nums1) {
-            n1Map[i]++;
-        }
-        for (auto i : nums2) {
-            n2Map[i]++;
-        }
+        vector<bool> freq1(2002, false);
+        vector<bool> freq2(2002, false);
+        for (auto i : nums1)
+            freq1[i + 1000] = true;
+        for (auto i : nums2)
+            freq2[i + 1000] = true;
         set<int> ans1;
         set<int> ans2;
-        for (auto i : nums1) {
-            auto it = n2Map.find(i);
-            if (it == n2Map.end())
+        for (auto i : nums1)
+            if (freq2[i + 1000] == false)
                 ans1.insert(i);
-        }
-        for (auto i : nums2) {
-            auto it = n1Map.find(i);
-            if (it == n1Map.end())
+        for (auto i : nums2)
+            if (freq1[i + 1000] == false)
                 ans2.insert(i);
-        }
         vector<int> result1;
         vector<int> result2;
         for (auto i : ans1)
