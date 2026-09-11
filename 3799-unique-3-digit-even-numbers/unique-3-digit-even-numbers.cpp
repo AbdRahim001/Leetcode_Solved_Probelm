@@ -9,17 +9,12 @@ public:
                 for (int k = 0; k < len; k++) {
                     if (i != j && i != k && j != k) {
                         int num = digits[i] * 100 + digits[j] * 10 + digits[k];
-                        if (num > 99)
+                        if (num > 99 && !(num % 2))
                             st.insert(num);
                     }
                 }
             }
         }
-        int count = 0;
-        for (auto i : st) {
-            if (i % 2 == 0)
-                count++;
-        }
-        return count;
+        return st.size();
     }
 };
