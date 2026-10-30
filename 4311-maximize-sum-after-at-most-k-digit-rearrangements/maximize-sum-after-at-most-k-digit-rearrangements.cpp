@@ -1,13 +1,14 @@
 class Solution {
 public:
     int makeLargest(int x) {
-        multiset<int, greater<int>> st;
-        while (x) {
-            st.insert(x % 10);
+        vector<int> digits;
+        while (x > 0) {
+            digits.push_back(x % 10);
             x /= 10;
         }
+        sort(digits.rbegin(), digits.rend());
         int n = 0;
-        for (auto i : st) {
+        for (auto i : digits) {
             n = n * 10 + i;
         }
         return n;
